@@ -1,0 +1,3680 @@
+{
+    "pagedFlows": 10,
+    "flows": [
+        {
+            "hops": [
+                {
+                    "actionIndex": 2,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "in_acl"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.4",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "ip_version": "4",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "eth_type": "0x800",
+                            "ipv4_dst": "1.0.0.4",
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "in_ports": [
+                        "veos-0 et1",
+                        "veos-0 et3"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "out_port none metadata 0x0"
+                                },
+                                {
+                                    "out_ports": [
+                                        "in_acl"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.input",
+                        "in_ports": [
+                            "et1",
+                            "et2",
+                            "et3"
+                        ],
+                        "table": "veos-0.input",
+                        "id": 0,
+                        "match": {
+                            "ip_version": "4",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "table": "veos-0.input"
+                },
+                {
+                    "actionIndex": 0,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "ipv4"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.4",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.4",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "in_acl"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "out_ports": [
+                                        "ipv4",
+                                        "ipv6",
+                                        "l2"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.in_acl",
+                        "in_ports": [
+                            "in_acl"
+                        ],
+                        "table": "veos-0.in_acl",
+                        "id": 0,
+                        "match": {
+                            "packet_type": "ALL"
+                        }
+                    },
+                    "table": "veos-0.in_acl"
+                },
+                {
+                    "actionIndex": 1,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "out_acl"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.4",
+                            "mac_dst": "host_mac",
+                            "out_port": "veos-0 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.4",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "ipv4"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "out_port veos-0 et2 mac_dst host_mac"
+                                },
+                                {
+                                    "out_ports": [
+                                        "out_acl"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.ipv4",
+                        "in_ports": [
+                            "ipv4"
+                        ],
+                        "table": "veos-0.ipv4",
+                        "id": 3,
+                        "match": {
+                            "ip_version": "4",
+                            "eth_type": "0x800",
+                            "ipv4_dst": "1.0.0.4/31"
+                        }
+                    },
+                    "table": "veos-0.ipv4"
+                },
+                {
+                    "actionIndex": 0,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "output"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.4",
+                            "mac_dst": "host_mac",
+                            "out_port": "veos-0 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.4",
+                            "mac_dst": "host_mac",
+                            "out_port": "veos-0 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "out_acl"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "out_ports": [
+                                        "output"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.out_acl",
+                        "in_ports": [
+                            "out_acl"
+                        ],
+                        "table": "veos-0.out_acl",
+                        "id": 0,
+                        "match": {
+                            "packet_type": "ALL"
+                        }
+                    },
+                    "table": "veos-0.out_acl"
+                },
+                {
+                    "actionIndex": 1,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "veos-0 et2"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.4",
+                            "mac_dst": "host_mac",
+                            "out_port": "veos-0 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.4",
+                            "mac_dst": "host_mac",
+                            "out_port": "veos-0 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "output"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "mac_src 00:00:00:9e:15:0a"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.output",
+                        "in_ports": [
+                            "output"
+                        ],
+                        "table": "veos-0.output",
+                        "id": 1,
+                        "match": {
+                            "out_port": "veos-0 et2"
+                        }
+                    },
+                    "table": "veos-0.output"
+                },
+                {
+                    "actionIndex": 2,
+                    "parent": "veos-1",
+                    "out_ports": [
+                        "in_acl"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.4",
+                            "mac_dst": "host_mac",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.4",
+                            "mac_dst": "host_mac",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4"
+                        }
+                    },
+                    "in_ports": [
+                        "veos-1 et1"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-1",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "out_port none metadata 0x0"
+                                },
+                                {
+                                    "out_ports": [
+                                        "in_acl"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-1",
+                        "tableName": "veos-1.input",
+                        "in_ports": [
+                            "et1"
+                        ],
+                        "table": "veos-1.input",
+                        "id": 1,
+                        "match": {
+                            "ip_version": "4",
+                            "mac_dst": "host_mac",
+                            "eth_type": "0x800",
+                            "ipv4_dst": "1.0.0.4",
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "table": "veos-1.input"
+                },
+                {
+                    "actionIndex": 0,
+                    "parent": "veos-1",
+                    "out_ports": [
+                        "ipv4"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.4",
+                            "mac_dst": "host_mac",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.4",
+                            "mac_dst": "host_mac",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "in_acl"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-1",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "out_ports": [
+                                        "ipv4",
+                                        "ipv6",
+                                        "l2"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-1",
+                        "tableName": "veos-1.in_acl",
+                        "in_ports": [
+                            "in_acl"
+                        ],
+                        "table": "veos-1.in_acl",
+                        "id": 0,
+                        "match": {
+                            "packet_type": "ALL"
+                        }
+                    },
+                    "table": "veos-1.in_acl"
+                },
+                {
+                    "actionIndex": 0,
+                    "parent": "veos-1",
+                    "out_ports": [
+                        "veos-1 receive"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.4",
+                            "mac_dst": "host_mac",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.4",
+                            "mac_dst": "host_mac",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "ipv4"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-1",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "out_ports": [
+                                        "veos-1 receive"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-1",
+                        "tableName": "veos-1.ipv4",
+                        "in_ports": [
+                            "ipv4"
+                        ],
+                        "table": "veos-1.ipv4",
+                        "id": 0,
+                        "match": {
+                            "ip_version": "4",
+                            "eth_type": "0x800",
+                            "ipv4_dst": "0.0.0.0/8, 1.0.0.4, 1.0.0.6, 18.0.0.5, 127.0.0.0/8"
+                        }
+                    },
+                    "table": "veos-1.ipv4"
+                }
+            ],
+            "flowType": "VALID",
+            "coveredTopo": {
+                "nodes": [
+                    {
+                        "id": "veos-1"
+                    },
+                    {
+                        "id": "veos-0"
+                    }
+                ],
+                "links": [
+                    {
+                        "sourcePort": "veos-0 et2",
+                        "targetPort": "veos-1 et1"
+                    }
+                ]
+            }
+        },
+        {
+            "hops": [
+                {
+                    "actionIndex": 1,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "none"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ip_version": "4",
+                                "eth_type": "0x800"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ip_version": "4",
+                                "eth_type": "0x800"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "in_ports": [
+                        "veos-0 et3"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "out_port none"
+                                },
+                                {
+                                    "type": "drop"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.input",
+                        "in_ports": [
+                            "et1",
+                            "et2",
+                            "et3"
+                        ],
+                        "table": "veos-0.input",
+                        "id": 4,
+                        "match": {
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "table": "veos-0.input"
+                }
+            ],
+            "flowType": "DROPPED",
+            "coveredTopo": {
+                "nodes": [
+                    {
+                        "id": "veos-0"
+                    }
+                ],
+                "links": []
+            }
+        },
+        {
+            "hops": [
+                {
+                    "actionIndex": 5,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "in_acl"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "mac_dst": "00:00:00:9e:15:0a, 00:00:00:00:00:06"
+                            }
+                        ],
+                        "minuend": {
+                            "vlan_pcp": "0x0",
+                            "out_port": "none",
+                            "vlan_vid": "1",
+                            "vlan_dei": "0",
+                            "in_port": "veos-0 ma1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "mac_dst": "00:00:00:9e:15:0a, 00:00:00:00:00:06"
+                            }
+                        ],
+                        "minuend": {
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "in_ports": [
+                        "veos-0 ma1"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "pop_all_vlan_pcp"
+                                },
+                                {
+                                    "type": "pop_all_vlan_dei"
+                                },
+                                {
+                                    "type": "pop_all_vlan_vid"
+                                },
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "out_port none metadata 0x0 vlan_vid 1 vlan_pcp 0x0 vlan_dei 0"
+                                },
+                                {
+                                    "out_ports": [
+                                        "in_acl"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.input",
+                        "in_ports": [
+                            "ma1"
+                        ],
+                        "table": "veos-0.input",
+                        "id": 6,
+                        "match": {
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "table": "veos-0.input"
+                },
+                {
+                    "actionIndex": 0,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "l2"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "mac_dst": "00:00:00:9e:15:0a, 00:00:00:00:00:06"
+                            }
+                        ],
+                        "minuend": {
+                            "vlan_pcp": "0x0",
+                            "out_port": "none",
+                            "vlan_vid": "1",
+                            "vlan_dei": "0",
+                            "in_port": "veos-0 ma1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "mac_dst": "00:00:00:9e:15:0a, 00:00:00:00:00:06"
+                            }
+                        ],
+                        "minuend": {
+                            "vlan_pcp": "0x0",
+                            "out_port": "none",
+                            "vlan_vid": "1",
+                            "vlan_dei": "0",
+                            "in_port": "veos-0 ma1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "in_acl"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "out_ports": [
+                                        "ipv4",
+                                        "ipv6",
+                                        "l2"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.in_acl",
+                        "in_ports": [
+                            "in_acl"
+                        ],
+                        "table": "veos-0.in_acl",
+                        "id": 0,
+                        "match": {
+                            "packet_type": "ALL"
+                        }
+                    },
+                    "table": "veos-0.in_acl"
+                },
+                {
+                    "actionIndex": null,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "none"
+                    ],
+                    "actionBucketIndex": null,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "mac_dst": "00:00:00:9e:15:0a, 00:00:00:00:00:06"
+                            }
+                        ],
+                        "minuend": {
+                            "vlan_pcp": "0x0",
+                            "out_port": "none",
+                            "vlan_vid": "1",
+                            "vlan_dei": "0",
+                            "in_port": "veos-0 ma1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "mac_dst": "00:00:00:9e:15:0a, 00:00:00:00:00:06"
+                            }
+                        ],
+                        "minuend": {
+                            "vlan_pcp": "0x0",
+                            "out_port": "none",
+                            "vlan_vid": "1",
+                            "vlan_dei": "0",
+                            "in_port": "veos-0 ma1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "l2"
+                    ],
+                    "rule": null,
+                    "table": "veos-0.l2"
+                }
+            ],
+            "flowType": "BLACKHOLE",
+            "coveredTopo": {
+                "nodes": [
+                    {
+                        "id": "veos-0"
+                    }
+                ],
+                "links": []
+            }
+        },
+        {
+            "hops": [
+                {
+                    "actionIndex": 2,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "in_acl"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "mac_dst": "00:00:00:9e:15:0a, 00:00:00:00:00:06"
+                            }
+                        ],
+                        "minuend": {
+                            "vlan_vid": "1",
+                            "out_port": "none",
+                            "in_port": "veos-0 ma1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "mac_dst": "00:00:00:9e:15:0a, 00:00:00:00:00:06"
+                            }
+                        ],
+                        "minuend": {
+                            "vlan_vid": "1"
+                        }
+                    },
+                    "in_ports": [
+                        "veos-0 ma1"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "out_port none metadata 0x0"
+                                },
+                                {
+                                    "out_ports": [
+                                        "in_acl"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.input",
+                        "in_ports": [
+                            "ma1"
+                        ],
+                        "table": "veos-0.input",
+                        "id": 5,
+                        "match": {
+                            "vlan_vid": "1"
+                        }
+                    },
+                    "table": "veos-0.input"
+                },
+                {
+                    "actionIndex": 0,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "l2"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "mac_dst": "00:00:00:9e:15:0a, 00:00:00:00:00:06"
+                            }
+                        ],
+                        "minuend": {
+                            "vlan_vid": "1",
+                            "out_port": "none",
+                            "in_port": "veos-0 ma1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "mac_dst": "00:00:00:9e:15:0a, 00:00:00:00:00:06"
+                            }
+                        ],
+                        "minuend": {
+                            "vlan_vid": "1",
+                            "out_port": "none",
+                            "in_port": "veos-0 ma1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "in_acl"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "out_ports": [
+                                        "ipv4",
+                                        "ipv6",
+                                        "l2"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.in_acl",
+                        "in_ports": [
+                            "in_acl"
+                        ],
+                        "table": "veos-0.in_acl",
+                        "id": 0,
+                        "match": {
+                            "packet_type": "ALL"
+                        }
+                    },
+                    "table": "veos-0.in_acl"
+                },
+                {
+                    "actionIndex": null,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "none"
+                    ],
+                    "actionBucketIndex": null,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "mac_dst": "00:00:00:9e:15:0a, 00:00:00:00:00:06"
+                            }
+                        ],
+                        "minuend": {
+                            "vlan_vid": "1",
+                            "out_port": "none",
+                            "in_port": "veos-0 ma1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "mac_dst": "00:00:00:9e:15:0a, 00:00:00:00:00:06"
+                            }
+                        ],
+                        "minuend": {
+                            "vlan_vid": "1",
+                            "out_port": "none",
+                            "in_port": "veos-0 ma1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "l2"
+                    ],
+                    "rule": null,
+                    "table": "veos-0.l2"
+                }
+            ],
+            "flowType": "BLACKHOLE",
+            "coveredTopo": {
+                "nodes": [
+                    {
+                        "id": "veos-0"
+                    }
+                ],
+                "links": []
+            }
+        },
+        {
+            "hops": [
+                {
+                    "actionIndex": 2,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "in_acl"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "0.0.0.0/8, 1.0.0.2/31, 1.0.0.4/30, 18.0.0.2/31, 18.0.0.4/31, 127.0.0.0/8"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "0.0.0.0/8, 1.0.0.2/31, 1.0.0.4/30, 18.0.0.2/31, 18.0.0.4/31, 127.0.0.0/8"
+                            }
+                        ],
+                        "minuend": {
+                            "ip_version": "4",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "in_ports": [
+                        "veos-0 et1",
+                        "veos-0 et3"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "out_port none metadata 0x0"
+                                },
+                                {
+                                    "out_ports": [
+                                        "in_acl"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.input",
+                        "in_ports": [
+                            "et1",
+                            "et2",
+                            "et3"
+                        ],
+                        "table": "veos-0.input",
+                        "id": 0,
+                        "match": {
+                            "ip_version": "4",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "table": "veos-0.input"
+                },
+                {
+                    "actionIndex": 0,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "ipv4"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "0.0.0.0/8, 1.0.0.2/31, 1.0.0.4/30, 18.0.0.2/31, 18.0.0.4/31, 127.0.0.0/8"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "0.0.0.0/8, 1.0.0.2/31, 1.0.0.4/30, 18.0.0.2/31, 18.0.0.4/31, 127.0.0.0/8"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "in_acl"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "out_ports": [
+                                        "ipv4",
+                                        "ipv6",
+                                        "l2"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.in_acl",
+                        "in_ports": [
+                            "in_acl"
+                        ],
+                        "table": "veos-0.in_acl",
+                        "id": 0,
+                        "match": {
+                            "packet_type": "ALL"
+                        }
+                    },
+                    "table": "veos-0.in_acl"
+                },
+                {
+                    "actionIndex": null,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "none"
+                    ],
+                    "actionBucketIndex": null,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "0.0.0.0/8, 1.0.0.2/31, 1.0.0.4/30, 18.0.0.2/31, 18.0.0.4/31, 127.0.0.0/8"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "0.0.0.0/8, 1.0.0.2/31, 1.0.0.4/30, 18.0.0.2/31, 18.0.0.4/31, 127.0.0.0/8"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "ipv4"
+                    ],
+                    "rule": null,
+                    "table": "veos-0.ipv4"
+                }
+            ],
+            "flowType": "BLACKHOLE",
+            "coveredTopo": {
+                "nodes": [
+                    {
+                        "id": "veos-0"
+                    }
+                ],
+                "links": []
+            }
+        },
+        {
+            "hops": [
+                {
+                    "actionIndex": 1,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "none"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ip_version": "4",
+                                "eth_type": "0x800"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ip_version": "4",
+                                "eth_type": "0x800"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "in_ports": [
+                        "veos-0 et1"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "out_port none"
+                                },
+                                {
+                                    "type": "drop"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.input",
+                        "in_ports": [
+                            "et1",
+                            "et2",
+                            "et3"
+                        ],
+                        "table": "veos-0.input",
+                        "id": 4,
+                        "match": {
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "table": "veos-0.input"
+                }
+            ],
+            "flowType": "DROPPED",
+            "coveredTopo": {
+                "nodes": [
+                    {
+                        "id": "veos-0"
+                    }
+                ],
+                "links": []
+            }
+        },
+        {
+            "hops": [
+                {
+                    "actionIndex": 2,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "in_acl"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.2"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.2/31",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.2"
+                            }
+                        ],
+                        "minuend": {
+                            "ip_version": "4",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "eth_type": "0x800",
+                            "ipv4_dst": "1.0.0.2/31",
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "in_ports": [
+                        "veos-0 et1",
+                        "veos-0 et3"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "out_port none metadata 0x0"
+                                },
+                                {
+                                    "out_ports": [
+                                        "in_acl"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.input",
+                        "in_ports": [
+                            "et1",
+                            "et2",
+                            "et3"
+                        ],
+                        "table": "veos-0.input",
+                        "id": 0,
+                        "match": {
+                            "ip_version": "4",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "table": "veos-0.input"
+                },
+                {
+                    "actionIndex": 0,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "ipv4"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.2"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.2/31",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.2"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.2/31",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "in_acl"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "out_ports": [
+                                        "ipv4",
+                                        "ipv6",
+                                        "l2"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.in_acl",
+                        "in_ports": [
+                            "in_acl"
+                        ],
+                        "table": "veos-0.in_acl",
+                        "id": 0,
+                        "match": {
+                            "packet_type": "ALL"
+                        }
+                    },
+                    "table": "veos-0.in_acl"
+                },
+                {
+                    "actionIndex": 1,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "out_acl"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.2"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.2/31",
+                            "mac_dst": "host_mac",
+                            "out_port": "veos-0 et1",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.2"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.2/31",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "ipv4"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "out_port veos-0 et1 mac_dst host_mac"
+                                },
+                                {
+                                    "out_ports": [
+                                        "out_acl"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.ipv4",
+                        "in_ports": [
+                            "ipv4"
+                        ],
+                        "table": "veos-0.ipv4",
+                        "id": 4,
+                        "match": {
+                            "ip_version": "4",
+                            "eth_type": "0x800",
+                            "ipv4_dst": "1.0.0.2/31"
+                        }
+                    },
+                    "table": "veos-0.ipv4"
+                },
+                {
+                    "actionIndex": 0,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "output"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.2"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.2/31",
+                            "mac_dst": "host_mac",
+                            "out_port": "veos-0 et1",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.2"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.2/31",
+                            "mac_dst": "host_mac",
+                            "out_port": "veos-0 et1",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "out_acl"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "out_ports": [
+                                        "output"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.out_acl",
+                        "in_ports": [
+                            "out_acl"
+                        ],
+                        "table": "veos-0.out_acl",
+                        "id": 0,
+                        "match": {
+                            "packet_type": "ALL"
+                        }
+                    },
+                    "table": "veos-0.out_acl"
+                },
+                {
+                    "actionIndex": 1,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "veos-0 et1"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.2"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.2/31",
+                            "mac_dst": "host_mac",
+                            "out_port": "veos-0 et1",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.2"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.2/31",
+                            "mac_dst": "host_mac",
+                            "out_port": "veos-0 et1",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "output"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "mac_src 00:00:00:9e:15:0a"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.output",
+                        "in_ports": [
+                            "output"
+                        ],
+                        "table": "veos-0.output",
+                        "id": 0,
+                        "match": {
+                            "out_port": "veos-0 et1"
+                        }
+                    },
+                    "table": "veos-0.output"
+                }
+            ],
+            "flowType": "VALID",
+            "coveredTopo": {
+                "nodes": [
+                    {
+                        "id": "veos-0"
+                    }
+                ],
+                "links": []
+            }
+        },
+        {
+            "hops": [
+                {
+                    "actionIndex": 2,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "in_acl"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.6"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.6/31",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.6"
+                            }
+                        ],
+                        "minuend": {
+                            "ip_version": "4",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "eth_type": "0x800",
+                            "ipv4_dst": "1.0.0.6/31",
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "in_ports": [
+                        "veos-0 et1",
+                        "veos-0 et3"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "out_port none metadata 0x0"
+                                },
+                                {
+                                    "out_ports": [
+                                        "in_acl"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.input",
+                        "in_ports": [
+                            "et1",
+                            "et2",
+                            "et3"
+                        ],
+                        "table": "veos-0.input",
+                        "id": 0,
+                        "match": {
+                            "ip_version": "4",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "table": "veos-0.input"
+                },
+                {
+                    "actionIndex": 0,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "ipv4"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.6"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.6/31",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.6"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.6/31",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "in_acl"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "out_ports": [
+                                        "ipv4",
+                                        "ipv6",
+                                        "l2"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.in_acl",
+                        "in_ports": [
+                            "in_acl"
+                        ],
+                        "table": "veos-0.in_acl",
+                        "id": 0,
+                        "match": {
+                            "packet_type": "ALL"
+                        }
+                    },
+                    "table": "veos-0.in_acl"
+                },
+                {
+                    "actionIndex": 1,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "out_acl"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.6"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.6/31",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "veos-0 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.6"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.6/31",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "ipv4"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "out_port veos-0 et2 mac_dst 00:00:00:8a:8f:ae"
+                                },
+                                {
+                                    "out_ports": [
+                                        "out_acl"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.ipv4",
+                        "in_ports": [
+                            "ipv4"
+                        ],
+                        "table": "veos-0.ipv4",
+                        "id": 1,
+                        "match": {
+                            "ip_version": "4",
+                            "eth_type": "0x800",
+                            "ipv4_dst": "1.0.0.6/31, 18.0.0.4/31"
+                        }
+                    },
+                    "table": "veos-0.ipv4"
+                },
+                {
+                    "actionIndex": 0,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "output"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.6"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.6/31",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "veos-0 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.6"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.6/31",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "veos-0 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "out_acl"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "out_ports": [
+                                        "output"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.out_acl",
+                        "in_ports": [
+                            "out_acl"
+                        ],
+                        "table": "veos-0.out_acl",
+                        "id": 0,
+                        "match": {
+                            "packet_type": "ALL"
+                        }
+                    },
+                    "table": "veos-0.out_acl"
+                },
+                {
+                    "actionIndex": 1,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "veos-0 et2"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.6"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.6/31",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "veos-0 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.6"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.6/31",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "veos-0 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "output"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "mac_src 00:00:00:9e:15:0a"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.output",
+                        "in_ports": [
+                            "output"
+                        ],
+                        "table": "veos-0.output",
+                        "id": 1,
+                        "match": {
+                            "out_port": "veos-0 et2"
+                        }
+                    },
+                    "table": "veos-0.output"
+                },
+                {
+                    "actionIndex": 2,
+                    "parent": "veos-1",
+                    "out_ports": [
+                        "in_acl"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.6"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.6/31",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.6"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.6/31",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4"
+                        }
+                    },
+                    "in_ports": [
+                        "veos-1 et1"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-1",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "out_port none metadata 0x0"
+                                },
+                                {
+                                    "out_ports": [
+                                        "in_acl"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-1",
+                        "tableName": "veos-1.input",
+                        "in_ports": [
+                            "et1",
+                            "et2",
+                            "et3"
+                        ],
+                        "table": "veos-1.input",
+                        "id": 0,
+                        "match": {
+                            "ip_version": "4",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "table": "veos-1.input"
+                },
+                {
+                    "actionIndex": 0,
+                    "parent": "veos-1",
+                    "out_ports": [
+                        "ipv4"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.6"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.6/31",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.6"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.6/31",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "in_acl"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-1",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "out_ports": [
+                                        "ipv4",
+                                        "ipv6",
+                                        "l2"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-1",
+                        "tableName": "veos-1.in_acl",
+                        "in_ports": [
+                            "in_acl"
+                        ],
+                        "table": "veos-1.in_acl",
+                        "id": 0,
+                        "match": {
+                            "packet_type": "ALL"
+                        }
+                    },
+                    "table": "veos-1.in_acl"
+                },
+                {
+                    "actionIndex": 1,
+                    "parent": "veos-1",
+                    "out_ports": [
+                        "out_acl"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.6"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.6/31",
+                            "mac_dst": "host_mac",
+                            "out_port": "veos-1 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.6"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.6/31",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "ipv4"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-1",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "out_port veos-1 et2 mac_dst host_mac"
+                                },
+                                {
+                                    "out_ports": [
+                                        "out_acl"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-1",
+                        "tableName": "veos-1.ipv4",
+                        "in_ports": [
+                            "ipv4"
+                        ],
+                        "table": "veos-1.ipv4",
+                        "id": 3,
+                        "match": {
+                            "ip_version": "4",
+                            "eth_type": "0x800",
+                            "ipv4_dst": "1.0.0.6/31"
+                        }
+                    },
+                    "table": "veos-1.ipv4"
+                },
+                {
+                    "actionIndex": 0,
+                    "parent": "veos-1",
+                    "out_ports": [
+                        "output"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.6"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.6/31",
+                            "mac_dst": "host_mac",
+                            "out_port": "veos-1 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.6"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.6/31",
+                            "mac_dst": "host_mac",
+                            "out_port": "veos-1 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "out_acl"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-1",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "out_ports": [
+                                        "output"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-1",
+                        "tableName": "veos-1.out_acl",
+                        "in_ports": [
+                            "out_acl"
+                        ],
+                        "table": "veos-1.out_acl",
+                        "id": 0,
+                        "match": {
+                            "packet_type": "ALL"
+                        }
+                    },
+                    "table": "veos-1.out_acl"
+                },
+                {
+                    "actionIndex": 1,
+                    "parent": "veos-1",
+                    "out_ports": [
+                        "veos-1 et2"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.6"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_src": "00:00:00:8a:8f:ae",
+                            "ipv4_dst": "1.0.0.6/31",
+                            "mac_dst": "host_mac",
+                            "out_port": "veos-1 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "1.0.0.6"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.6/31",
+                            "mac_dst": "host_mac",
+                            "out_port": "veos-1 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "output"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-1",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "mac_src 00:00:00:8a:8f:ae"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-1",
+                        "tableName": "veos-1.output",
+                        "in_ports": [
+                            "output"
+                        ],
+                        "table": "veos-1.output",
+                        "id": 1,
+                        "match": {
+                            "out_port": "veos-1 et2"
+                        }
+                    },
+                    "table": "veos-1.output"
+                }
+            ],
+            "flowType": "VALID",
+            "coveredTopo": {
+                "nodes": [
+                    {
+                        "id": "veos-1"
+                    },
+                    {
+                        "id": "veos-0"
+                    }
+                ],
+                "links": [
+                    {
+                        "sourcePort": "veos-0 et2",
+                        "targetPort": "veos-1 et1"
+                    }
+                ]
+            }
+        },
+        {
+            "hops": [
+                {
+                    "actionIndex": 2,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "in_acl"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "18.0.0.5"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "18.0.0.4/31",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "18.0.0.5"
+                            }
+                        ],
+                        "minuend": {
+                            "ip_version": "4",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "eth_type": "0x800",
+                            "ipv4_dst": "18.0.0.4/31",
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "in_ports": [
+                        "veos-0 et1",
+                        "veos-0 et3"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "out_port none metadata 0x0"
+                                },
+                                {
+                                    "out_ports": [
+                                        "in_acl"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.input",
+                        "in_ports": [
+                            "et1",
+                            "et2",
+                            "et3"
+                        ],
+                        "table": "veos-0.input",
+                        "id": 0,
+                        "match": {
+                            "ip_version": "4",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "table": "veos-0.input"
+                },
+                {
+                    "actionIndex": 0,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "ipv4"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "18.0.0.5"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "18.0.0.4/31",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "18.0.0.5"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "18.0.0.4/31",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "in_acl"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "out_ports": [
+                                        "ipv4",
+                                        "ipv6",
+                                        "l2"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.in_acl",
+                        "in_ports": [
+                            "in_acl"
+                        ],
+                        "table": "veos-0.in_acl",
+                        "id": 0,
+                        "match": {
+                            "packet_type": "ALL"
+                        }
+                    },
+                    "table": "veos-0.in_acl"
+                },
+                {
+                    "actionIndex": 1,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "out_acl"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "18.0.0.5"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "18.0.0.4/31",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "veos-0 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "18.0.0.5"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "18.0.0.4/31",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "ipv4"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "out_port veos-0 et2 mac_dst 00:00:00:8a:8f:ae"
+                                },
+                                {
+                                    "out_ports": [
+                                        "out_acl"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.ipv4",
+                        "in_ports": [
+                            "ipv4"
+                        ],
+                        "table": "veos-0.ipv4",
+                        "id": 1,
+                        "match": {
+                            "ip_version": "4",
+                            "eth_type": "0x800",
+                            "ipv4_dst": "1.0.0.6/31, 18.0.0.4/31"
+                        }
+                    },
+                    "table": "veos-0.ipv4"
+                },
+                {
+                    "actionIndex": 0,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "output"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "18.0.0.5"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "18.0.0.4/31",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "veos-0 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "18.0.0.5"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "18.0.0.4/31",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "veos-0 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "out_acl"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "out_ports": [
+                                        "output"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.out_acl",
+                        "in_ports": [
+                            "out_acl"
+                        ],
+                        "table": "veos-0.out_acl",
+                        "id": 0,
+                        "match": {
+                            "packet_type": "ALL"
+                        }
+                    },
+                    "table": "veos-0.out_acl"
+                },
+                {
+                    "actionIndex": 1,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "veos-0 et2"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "18.0.0.5"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "18.0.0.4/31",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "veos-0 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "18.0.0.5"
+                            }
+                        ],
+                        "minuend": {
+                            "ipv4_dst": "18.0.0.4/31",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "veos-0 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "output"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "mac_src 00:00:00:9e:15:0a"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.output",
+                        "in_ports": [
+                            "output"
+                        ],
+                        "table": "veos-0.output",
+                        "id": 1,
+                        "match": {
+                            "out_port": "veos-0 et2"
+                        }
+                    },
+                    "table": "veos-0.output"
+                },
+                {
+                    "actionIndex": 2,
+                    "parent": "veos-1",
+                    "out_ports": [
+                        "in_acl"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "18.0.0.5"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "18.0.0.4/31",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "18.0.0.5"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "18.0.0.4/31",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4"
+                        }
+                    },
+                    "in_ports": [
+                        "veos-1 et1"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-1",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "out_port none metadata 0x0"
+                                },
+                                {
+                                    "out_ports": [
+                                        "in_acl"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-1",
+                        "tableName": "veos-1.input",
+                        "in_ports": [
+                            "et1",
+                            "et2",
+                            "et3"
+                        ],
+                        "table": "veos-1.input",
+                        "id": 0,
+                        "match": {
+                            "ip_version": "4",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "table": "veos-1.input"
+                },
+                {
+                    "actionIndex": 0,
+                    "parent": "veos-1",
+                    "out_ports": [
+                        "ipv4"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "18.0.0.5"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "18.0.0.4/31",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "18.0.0.5"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "18.0.0.4/31",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "in_acl"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-1",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "out_ports": [
+                                        "ipv4",
+                                        "ipv6",
+                                        "l2"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-1",
+                        "tableName": "veos-1.in_acl",
+                        "in_ports": [
+                            "in_acl"
+                        ],
+                        "table": "veos-1.in_acl",
+                        "id": 0,
+                        "match": {
+                            "packet_type": "ALL"
+                        }
+                    },
+                    "table": "veos-1.in_acl"
+                },
+                {
+                    "actionIndex": 1,
+                    "parent": "veos-1",
+                    "out_ports": [
+                        "out_acl"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "18.0.0.5"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "18.0.0.4/31",
+                            "mac_dst": "host_mac",
+                            "out_port": "veos-1 et3",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "18.0.0.5"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "18.0.0.4/31",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "ipv4"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-1",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "out_port veos-1 et3 mac_dst host_mac"
+                                },
+                                {
+                                    "out_ports": [
+                                        "out_acl"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-1",
+                        "tableName": "veos-1.ipv4",
+                        "in_ports": [
+                            "ipv4"
+                        ],
+                        "table": "veos-1.ipv4",
+                        "id": 2,
+                        "match": {
+                            "ip_version": "4",
+                            "eth_type": "0x800",
+                            "ipv4_dst": "18.0.0.4/31"
+                        }
+                    },
+                    "table": "veos-1.ipv4"
+                },
+                {
+                    "actionIndex": 0,
+                    "parent": "veos-1",
+                    "out_ports": [
+                        "output"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "18.0.0.5"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "18.0.0.4/31",
+                            "mac_dst": "host_mac",
+                            "out_port": "veos-1 et3",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "18.0.0.5"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "18.0.0.4/31",
+                            "mac_dst": "host_mac",
+                            "out_port": "veos-1 et3",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "out_acl"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-1",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "out_ports": [
+                                        "output"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-1",
+                        "tableName": "veos-1.out_acl",
+                        "in_ports": [
+                            "out_acl"
+                        ],
+                        "table": "veos-1.out_acl",
+                        "id": 0,
+                        "match": {
+                            "packet_type": "ALL"
+                        }
+                    },
+                    "table": "veos-1.out_acl"
+                },
+                {
+                    "actionIndex": 1,
+                    "parent": "veos-1",
+                    "out_ports": [
+                        "veos-1 et3"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "18.0.0.5"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_src": "00:00:00:8a:8f:ae",
+                            "ipv4_dst": "18.0.0.4/31",
+                            "mac_dst": "host_mac",
+                            "out_port": "veos-1 et3",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [
+                            {
+                                "ipv4_dst": "18.0.0.5"
+                            }
+                        ],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "18.0.0.4/31",
+                            "mac_dst": "host_mac",
+                            "out_port": "veos-1 et3",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "output"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-1",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "mac_src 00:00:00:8a:8f:ae"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-1",
+                        "tableName": "veos-1.output",
+                        "in_ports": [
+                            "output"
+                        ],
+                        "table": "veos-1.output",
+                        "id": 2,
+                        "match": {
+                            "out_port": "veos-1 et3"
+                        }
+                    },
+                    "table": "veos-1.output"
+                }
+            ],
+            "flowType": "VALID",
+            "coveredTopo": {
+                "nodes": [
+                    {
+                        "id": "veos-1"
+                    },
+                    {
+                        "id": "veos-0"
+                    }
+                ],
+                "links": [
+                    {
+                        "sourcePort": "veos-0 et2",
+                        "targetPort": "veos-1 et1"
+                    }
+                ]
+            }
+        },
+        {
+            "hops": [
+                {
+                    "actionIndex": 2,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "in_acl"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.6, 18.0.0.5",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "ip_version": "4",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "eth_type": "0x800",
+                            "ipv4_dst": "1.0.0.6, 18.0.0.5",
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "in_ports": [
+                        "veos-0 et1",
+                        "veos-0 et3"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "out_port none metadata 0x0"
+                                },
+                                {
+                                    "out_ports": [
+                                        "in_acl"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.input",
+                        "in_ports": [
+                            "et1",
+                            "et2",
+                            "et3"
+                        ],
+                        "table": "veos-0.input",
+                        "id": 0,
+                        "match": {
+                            "ip_version": "4",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "table": "veos-0.input"
+                },
+                {
+                    "actionIndex": 0,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "ipv4"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.6, 18.0.0.5",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.6, 18.0.0.5",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "in_acl"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "out_ports": [
+                                        "ipv4",
+                                        "ipv6",
+                                        "l2"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.in_acl",
+                        "in_ports": [
+                            "in_acl"
+                        ],
+                        "table": "veos-0.in_acl",
+                        "id": 0,
+                        "match": {
+                            "packet_type": "ALL"
+                        }
+                    },
+                    "table": "veos-0.in_acl"
+                },
+                {
+                    "actionIndex": 1,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "out_acl"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.6, 18.0.0.5",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "veos-0 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.6, 18.0.0.5",
+                            "mac_dst": "00:00:00:9e:15:0a",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "ipv4"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "out_port veos-0 et2 mac_dst 00:00:00:8a:8f:ae"
+                                },
+                                {
+                                    "out_ports": [
+                                        "out_acl"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.ipv4",
+                        "in_ports": [
+                            "ipv4"
+                        ],
+                        "table": "veos-0.ipv4",
+                        "id": 1,
+                        "match": {
+                            "ip_version": "4",
+                            "eth_type": "0x800",
+                            "ipv4_dst": "1.0.0.6/31, 18.0.0.4/31"
+                        }
+                    },
+                    "table": "veos-0.ipv4"
+                },
+                {
+                    "actionIndex": 0,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "output"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.6, 18.0.0.5",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "veos-0 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.6, 18.0.0.5",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "veos-0 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "out_acl"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "out_ports": [
+                                        "output"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.out_acl",
+                        "in_ports": [
+                            "out_acl"
+                        ],
+                        "table": "veos-0.out_acl",
+                        "id": 0,
+                        "match": {
+                            "packet_type": "ALL"
+                        }
+                    },
+                    "table": "veos-0.out_acl"
+                },
+                {
+                    "actionIndex": 1,
+                    "parent": "veos-0",
+                    "out_ports": [
+                        "veos-0 et2"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.6, 18.0.0.5",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "veos-0 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "ipv4_dst": "1.0.0.6, 18.0.0.5",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "veos-0 et2",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-0 et1, veos-0 et3",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "output"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-0",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "mac_src 00:00:00:9e:15:0a"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-0",
+                        "tableName": "veos-0.output",
+                        "in_ports": [
+                            "output"
+                        ],
+                        "table": "veos-0.output",
+                        "id": 1,
+                        "match": {
+                            "out_port": "veos-0 et2"
+                        }
+                    },
+                    "table": "veos-0.output"
+                },
+                {
+                    "actionIndex": 2,
+                    "parent": "veos-1",
+                    "out_ports": [
+                        "in_acl"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.6, 18.0.0.5",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.6, 18.0.0.5",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4"
+                        }
+                    },
+                    "in_ports": [
+                        "veos-1 et1"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-1",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "type": "rewrite",
+                                    "rewrite": "out_port none metadata 0x0"
+                                },
+                                {
+                                    "out_ports": [
+                                        "in_acl"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-1",
+                        "tableName": "veos-1.input",
+                        "in_ports": [
+                            "et1",
+                            "et2",
+                            "et3"
+                        ],
+                        "table": "veos-1.input",
+                        "id": 0,
+                        "match": {
+                            "ip_version": "4",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged"
+                        }
+                    },
+                    "table": "veos-1.input"
+                },
+                {
+                    "actionIndex": 0,
+                    "parent": "veos-1",
+                    "out_ports": [
+                        "ipv4"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.6, 18.0.0.5",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.6, 18.0.0.5",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "in_acl"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-1",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "out_ports": [
+                                        "ipv4",
+                                        "ipv6",
+                                        "l2"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-1",
+                        "tableName": "veos-1.in_acl",
+                        "in_ports": [
+                            "in_acl"
+                        ],
+                        "table": "veos-1.in_acl",
+                        "id": 0,
+                        "match": {
+                            "packet_type": "ALL"
+                        }
+                    },
+                    "table": "veos-1.in_acl"
+                },
+                {
+                    "actionIndex": 0,
+                    "parent": "veos-1",
+                    "out_ports": [
+                        "veos-1 receive"
+                    ],
+                    "actionBucketIndex": 0,
+                    "out_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.6, 18.0.0.5",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_hs": {
+                        "subtrahend": [],
+                        "minuend": {
+                            "mac_src": "00:00:00:9e:15:0a",
+                            "ipv4_dst": "1.0.0.6, 18.0.0.5",
+                            "mac_dst": "00:00:00:8a:8f:ae",
+                            "out_port": "none",
+                            "eth_type": "0x800",
+                            "vlan_vid": "untagged",
+                            "ip_version": "4",
+                            "in_port": "veos-1 et1",
+                            "metadata": "0x0"
+                        }
+                    },
+                    "in_ports": [
+                        "ipv4"
+                    ],
+                    "rule": {
+                        "deviceName": "veos-1",
+                        "actionBuckets": [
+                            [
+                                {
+                                    "out_ports": [
+                                        "veos-1 receive"
+                                    ],
+                                    "type": "forward"
+                                }
+                            ]
+                        ],
+                        "parent": "veos-1",
+                        "tableName": "veos-1.ipv4",
+                        "in_ports": [
+                            "ipv4"
+                        ],
+                        "table": "veos-1.ipv4",
+                        "id": 0,
+                        "match": {
+                            "ip_version": "4",
+                            "eth_type": "0x800",
+                            "ipv4_dst": "0.0.0.0/8, 1.0.0.4, 1.0.0.6, 18.0.0.5, 127.0.0.0/8"
+                        }
+                    },
+                    "table": "veos-1.ipv4"
+                }
+            ],
+            "flowType": "VALID",
+            "coveredTopo": {
+                "nodes": [
+                    {
+                        "id": "veos-1"
+                    },
+                    {
+                        "id": "veos-0"
+                    }
+                ],
+                "links": [
+                    {
+                        "sourcePort": "veos-0 et2",
+                        "targetPort": "veos-1 et1"
+                    }
+                ]
+            }
+        }
+    ],
+    "totalFlows": {
+        "type": "EXACT",
+        "value": 10
+    }
+}

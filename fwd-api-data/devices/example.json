@@ -1,0 +1,184 @@
+[
+  {
+    "id": 1,
+    "name": "veos-0",
+    "vendor": "arista_eos",
+    "manufacturer": "ARISTA",
+    "connectionResult": "SUCCESS",
+    "collectionResult": "SUCCESS",
+    "deviceCollectionState": "SUCCEEDED",
+    "error": "NONE",
+    "deviceType": "ROUTER",
+    "files": [
+      "veos-0_ipv6_vr.txt",
+      "veos-0_ipv4_vr.txt",
+      "veos-0_vxlan.txt",
+      "veos-0_arp_table.txt",
+      "veos-0_iface_status.txt",
+      "veos-0_inventory.txt",
+      "veos-0_ipv6.txt",
+      "veos-0_ipv4_mcast.txt",
+      "veos-0_arp_vrfs.txt",
+      "veos-0_vlan_status.txt",
+      "veos-0_ipv4.txt",
+      "veos-0_iface.txt",
+      "veos-0_lldp.txt",
+      "veos-0_mlag_info.txt",
+      "veos-0_mlag.txt",
+      "veos-0_spanning_tree.txt",
+      "veos-0_switchport.txt",
+      "veos-0_config.txt",
+      "veos-0_ndp.txt",
+      "veos-0_mac_table.txt",
+      "veos-0_vrrp.txt",
+      "veos-0_vrfs.txt",
+      "veos-0_version.txt"
+    ],
+    "states": [
+      "ipv4",
+      "ipv6",
+      "vrf",
+      "ipv4_mcast",
+      "mac",
+      "stp",
+      "arp",
+      "arp_vrf",
+      "ndp",
+      "config",
+      "switchport",
+      "iface_status",
+      "ifaces",
+      "vxlan",
+      "vlan_status",
+      "version",
+      "inventory",
+      "lldp",
+      "ipv4_vr",
+      "ipv6_vr",
+      "vrrp",
+      "mlag",
+      "mlag_info"
+    ],
+    "osVersion": "4.15.0F",
+    "model": "vEOS",
+    "deviceFamily": "UNKNOWN",
+    "interfaces": [
+      {
+        "name": "et1",
+        "isManagement": false,
+        "subnets": [
+          "1.0.0.2\/31"
+        ]
+      },
+      {
+        "name": "et2",
+        "isManagement": false,
+        "subnets": [
+          "1.0.0.5\/31"
+        ]
+      },
+      {
+        "name": "et3",
+        "isManagement": false,
+        "subnets": [
+          "18.0.0.3\/31"
+        ]
+      },
+      {
+        "name": "ma1",
+        "isManagement": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "veos-1",
+    "vendor": "arista_eos",
+    "manufacturer": "ARISTA",
+    "connectionResult": "SUCCESS",
+    "collectionResult": "SUCCESS",
+    "deviceCollectionState": "SUCCEEDED",
+    "error": "NONE",
+    "deviceType": "ROUTER",
+    "files": [
+      "veos-1_ndp.txt",
+      "veos-1_vrfs.txt",
+      "veos-1_arp_table.txt",
+      "veos-1_ipv4.txt",
+      "veos-1_version.txt",
+      "veos-1_inventory.txt",
+      "veos-1_vrrp.txt",
+      "veos-1_vlan_status.txt",
+      "veos-1_vxlan.txt",
+      "veos-1_config.txt",
+      "veos-1_iface.txt",
+      "veos-1_arp_vrfs.txt",
+      "veos-1_spanning_tree.txt",
+      "veos-1_mlag_info.txt",
+      "veos-1_switchport.txt",
+      "veos-1_ipv4_mcast.txt",
+      "veos-1_ipv6.txt",
+      "veos-1_iface_status.txt",
+      "veos-1_lldp.txt",
+      "veos-1_ipv6_vr.txt",
+      "veos-1_mac_table.txt",
+      "veos-1_mlag.txt",
+      "veos-1_ipv4_vr.txt"
+    ],
+    "states": [
+      "ipv4",
+      "ipv6",
+      "vrf",
+      "ipv4_mcast",
+      "mac",
+      "stp",
+      "arp",
+      "arp_vrf",
+      "ndp",
+      "config",
+      "switchport",
+      "iface_status",
+      "ifaces",
+      "vxlan",
+      "vlan_status",
+      "version",
+      "inventory",
+      "lldp",
+      "ipv4_vr",
+      "ipv6_vr",
+      "vrrp",
+      "mlag",
+      "mlag_info"
+    ],
+    "osVersion": "4.15.0F",
+    "model": "vEOS",
+    "deviceFamily": "UNKNOWN",
+    "interfaces": [
+      {
+        "name": "et1",
+        "isManagement": false,
+        "subnets": [
+          "1.0.0.4\/31"
+        ]
+      },
+      {
+        "name": "et2",
+        "isManagement": false,
+        "subnets": [
+          "1.0.0.6\/31"
+        ]
+      },
+      {
+        "name": "et3",
+        "isManagement": false,
+        "subnets": [
+          "18.0.0.5\/31"
+        ]
+      },
+      {
+        "name": "ma1",
+        "isManagement": false
+      }
+    ]
+  }
+]

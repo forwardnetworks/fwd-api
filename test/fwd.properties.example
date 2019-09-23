@@ -1,0 +1,56 @@
+# This is an example Forward properties file.  It stores information
+# the fwd-api libraries use to connect to the Forward server. You
+# should change the url, username, and password contained in this
+# file.  You can then either pass this filename in as a parameter when
+# loading test cases or save it to ~/.fwd/fwd.properties and the
+# example test scripts will automatically try to read it.
+
+# Location at which to contact Forward Networks server
+url = your_url
+
+# Username/password for accessing server
+# NOTE: In the password, any backslash '\' characters must be escaped with a
+# backslash. For example an actual password of "abc\" must be entered as the
+# string "abc\\" below.
+username = your_username
+password = your_password
+
+
+#########################################################
+# Config below this line is unlikely to require changes #
+#########################################################
+
+# Location of data sources file
+data_sources = data_sources.json
+
+# Name of snapshot files; will have date appended
+snapshot_basename = snapshot
+
+# Dir in which to store any generated snapshots
+generated_snapshot_dir = generated/snapshots
+
+# If DNS resolution is functioning, SSL cert verification should work
+verify_ssl_cert = false
+
+# Connection timeout in milliseconds. This timeout value is used while
+# establishing a connection to the Forward Networks server.
+#
+# NOTE: To configure the timeout values that are used while connecting to
+# devices for collecting snapshot data, set the values in the data_sources
+# file.
+connection_timeout_millis = 10000
+
+# Read timeout in milliseconds. This value indicates the timeout to use while
+# waiting for a response to arrive from the Forward Networks server.
+read_timeout_millis = 300000
+
+# Disable auto-update feature.
+#
+# NOTE: The Forward Networks client CLI only checks for software updates when
+# the CLI is actually launched from the command line. There is no background
+# process that periodically checks for updates. Avoid disabling auto-updates
+# unless there is some critical error that causes failures.
+disable_auto_update = false
+
+# Config version
+version = 1.5

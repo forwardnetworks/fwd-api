@@ -1,0 +1,330 @@
+{
+  "interfaces": [
+    {
+      "name": "po20",
+      "mtu": 9214,
+      "fullDuplex": true,
+      "aliases": [
+        "po20",
+        "port-channel20"
+      ],
+      "isDown": false,
+      "macAddress": "00:12:00:00:00:0f",
+      "memberPorts": [
+        "et4",
+        "et3"
+      ],
+      "configuredMemberPorts": [
+        "et4",
+        "et3"
+      ],
+      "type": "Trunk Interface",
+      "fileLines": {
+        "SF-ACC-0-1_config.txt": [
+          {
+            "start": 14,
+            "end": 14
+          },
+          {
+            "start": 16,
+            "end": 18
+          }
+        ],
+        "SF-ACC-0-1_iface.txt": [
+          {
+            "start": 125,
+            "end": 127
+          }
+        ],
+        "SF-ACC-0-1.aggr_eth_members.txt": [
+          {
+            "start": 0,
+            "end": 1
+          }
+        ],
+        "SF-ACC-0-1_switchport.txt": [
+          {
+            "start": 51,
+            "end": 51
+          },
+          {
+            "start": 57,
+            "end": 57
+          }
+        ],
+        "SF-ACC-0-1_iface_status.txt": [
+          {
+            "start": 7,
+            "end": 7
+          }
+        ]
+      }
+    },
+    {
+      "name": "et1",
+      "mtu": 9214,
+      "fullDuplex": true,
+      "aliases": [
+        "et1",
+        "ethernet1",
+        "eth1",
+        "e1"
+      ],
+      "isDown": false,
+      "macAddress": "00:12:00:00:00:09",
+      "type": "Access Interface",
+      "fileLines": {
+        "SF-ACC-0-1_config.txt": [
+          {
+            "start": 14,
+            "end": 14
+          },
+          {
+            "start": 20,
+            "end": 21
+          }
+        ],
+        "SF-ACC-0-1_iface.txt": [
+          {
+            "start": 0,
+            "end": 2
+          }
+        ],
+        "SF-ACC-0-1_switchport.txt": [
+          {
+            "start": 3,
+            "end": 3
+          },
+          {
+            "start": 5,
+            "end": 5
+          }
+        ],
+        "SF-ACC-0-1_iface_status.txt": [
+          {
+            "start": 1,
+            "end": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "et2",
+      "mtu": 9214,
+      "fullDuplex": true,
+      "aliases": [
+        "et2",
+        "ethernet2",
+        "eth2",
+        "e2"
+      ],
+      "isDown": false,
+      "macAddress": "00:12:00:00:00:0d",
+      "type": "Access Interface",
+      "fileLines": {
+        "SF-ACC-0-1_config.txt": [
+          {
+            "start": 14,
+            "end": 14
+          },
+          {
+            "start": 23,
+            "end": 24
+          }
+        ],
+        "SF-ACC-0-1_iface.txt": [
+          {
+            "start": 20,
+            "end": 22
+          }
+        ],
+        "SF-ACC-0-1_switchport.txt": [
+          {
+            "start": 15,
+            "end": 15
+          },
+          {
+            "start": 17,
+            "end": 17
+          }
+        ],
+        "SF-ACC-0-1_iface_status.txt": [
+          {
+            "start": 2,
+            "end": 2
+          }
+        ]
+      }
+    },
+    {
+      "name": "et3",
+      "mtu": 9214,
+      "fullDuplex": true,
+      "aliases": [
+        "et3",
+        "ethernet3",
+        "eth3",
+        "e3"
+      ],
+      "isDown": false,
+      "macAddress": "00:12:00:00:00:0f",
+      "type": "Interface",
+      "fileLines": {
+        "SF-ACC-0-1_config.txt": [
+          {
+            "start": 26,
+            "end": 27
+          }
+        ],
+        "SF-ACC-0-1_iface.txt": [
+          {
+            "start": 40,
+            "end": 41
+          },
+          {
+            "start": 43,
+            "end": 43
+          }
+        ],
+        "SF-ACC-0-1_switchport.txt": [
+          {
+            "start": 27,
+            "end": 27
+          },
+          {
+            "start": 29,
+            "end": 29
+          }
+        ],
+        "SF-ACC-0-1_iface_status.txt": [
+          {
+            "start": 3,
+            "end": 3
+          }
+        ]
+      }
+    },
+    {
+      "name": "et4",
+      "mtu": 9214,
+      "fullDuplex": true,
+      "aliases": [
+        "et4",
+        "ethernet4",
+        "eth4",
+        "e4"
+      ],
+      "isDown": false,
+      "macAddress": "00:12:00:00:00:13",
+      "type": "Interface",
+      "fileLines": {
+        "SF-ACC-0-1_config.txt": [
+          {
+            "start": 29,
+            "end": 30
+          }
+        ],
+        "SF-ACC-0-1_iface.txt": [
+          {
+            "start": 61,
+            "end": 62
+          },
+          {
+            "start": 64,
+            "end": 64
+          }
+        ],
+        "SF-ACC-0-1_switchport.txt": [
+          {
+            "start": 39,
+            "end": 39
+          },
+          {
+            "start": 41,
+            "end": 41
+          }
+        ],
+        "SF-ACC-0-1_iface_status.txt": [
+          {
+            "start": 4,
+            "end": 4
+          }
+        ]
+      }
+    },
+    {
+      "name": "et5",
+      "mtu": 1500,
+      "fullDuplex": true,
+      "aliases": [
+        "et5",
+        "ethernet5",
+        "eth5",
+        "e5"
+      ],
+      "isDown": false,
+      "macAddress": "00:12:00:08:f7:cb",
+      "ipAddresses": [
+        "10.133.0.22\/31"
+      ],
+      "type": "L3 Interface",
+      "fileLines": {
+        "SF-ACC-0-1_config.txt": [
+          {
+            "start": 32,
+            "end": 34
+          }
+        ],
+        "SF-ACC-0-1_iface.txt": [
+          {
+            "start": 82,
+            "end": 83
+          },
+          {
+            "start": 87,
+            "end": 87
+          }
+        ],
+        "SF-ACC-0-1_iface_status.txt": [
+          {
+            "start": 5,
+            "end": 5
+          }
+        ]
+      }
+    },
+    {
+      "name": "ma1",
+      "mtu": 1500,
+      "speedMbps": 1000,
+      "fullDuplex": true,
+      "aliases": [
+        "ma1",
+        "management1"
+      ],
+      "isDown": false,
+      "macAddress": "00:12:00:00:00:06",
+      "type": "Access Interface",
+      "fileLines": {
+        "SF-ACC-0-1_config.txt": [
+          {
+            "start": 36,
+            "end": 36
+          }
+        ],
+        "SF-ACC-0-1_iface.txt": [
+          {
+            "start": 105,
+            "end": 108
+          }
+        ],
+        "SF-ACC-0-1_iface_status.txt": [
+          {
+            "start": 6,
+            "end": 6
+          }
+        ]
+      }
+    }
+  ]
+}
